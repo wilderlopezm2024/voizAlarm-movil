@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Círculo central -->
+    <item>
+        <shape android:shape="oval">
+            <size android:width="200dp" android:height="200dp"/>
+            <solid android:color="#66A5D6A7"/> <!-- Verde con transparencia -->
+        </shape>
+    </item>
+
+    <!-- Primer aro -->
+    <item>
+        <shape android:shape="oval">
+            <size android:width="250dp" android:height="250dp"/> <!-- Más grande -->
+            <stroke android:width="10dp" android:color="#80A5D6A7"/> <!-- Verde claro -->
+        </shape>
+    </item>
+
+    <!-- Segundo aro -->
+    <item>
+        <shape android:shape="oval">
+            <size android:width="200dp" android:height="200dp"/> <!-- Más pequeño -->
+            <stroke android:width="20dp" android:color="@android:color/transparent"/>
+        </shape>
+    </item>
+
+    <!-- Tercer aro -->
+    <item>
+        <shape android:shape="oval">
+            <size android:width="150dp" android:height="150dp"/>
+            <stroke android:width="40dp" android:color="#80A5D6A7"/>
+        </shape>
+    </item>
+
+    <!-- Cuarto aro -->
+    <item>
+        <shape android:shape="oval">
+            <size android:width="100dp" android:height="100dp"/>
+            <stroke android:width="80dp" android:color="#80A5D6A7"/>
+        </shape>
+    </item>
+
+</layer-list>

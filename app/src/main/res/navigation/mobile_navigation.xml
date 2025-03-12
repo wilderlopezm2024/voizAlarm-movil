@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_alarmas">
+
+    <fragment
+        android:id="@+id/navigation_alarmas"
+        android:name="com.example.alarmas.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_alarmas_to_encendido"
+            app:destination="@id/fragment_encendido" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_mensajes"
+        android:name="com.example.alarmas.ui.dashboard.DashboardFragment"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/fragment_dashboard" />
+
+    <fragment
+        android:id="@+id/navigation_ajustes"
+        android:name="com.example.alarmas.ui.notifications.NotificationsFragment"
+        android:label="@string/title_notifications"
+        tools:layout="@layout/fragment_notifications">
+        <action
+            android:id="@+id/action_idioma"
+            app:destination="@id/fragment_idioma" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_encendido"
+        android:name="com.example.alarmas.ui.home.EncendidoFragment"
+        android:label="Encendido" />
+
+    <fragment
+        android:id="@+id/fragment_idioma"
+        android:name="com.example.alarmas.ui.notifications.IdiomaFragment"
+        android:label="Idioma" />
+</navigation>
