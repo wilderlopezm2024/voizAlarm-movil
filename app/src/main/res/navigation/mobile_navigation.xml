@@ -40,4 +40,11 @@
         android:id="@+id/fragment_idioma"
         android:name="com.example.alarmas.ui.notifications.IdiomaFragment"
         android:label="Idioma" />
+
+    <fragment
+        android:id="@+id/crearAlarmaFragment"
+        android:name="com.example.alarmas.ui.alarm.CrearAlarmaFragment"
+        android:label="Crear Alarma"
+        tools:layout="@layout/fragment_crear_alarma" />
+
 </navigation>

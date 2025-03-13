@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="top"
+    android:background="#BF6DB7E6">
+
+    <ViewFlipper
+        android:id="@+id/viewFlipperCrearAlarma"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inAnimation="@android:anim/fade_in"
+        android:outAnimation="@android:anim/fade_out">
+
+        <!-- PRIMERA VISTA: Escuchando -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/tvEscuchandoAlarma"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Escuchando..."
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"/>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="48dp">
+
+                <!-- Círculo de ondas en el fondo -->
+                <ImageView
+                    android:id="@+id/circleView"
+                    android:layout_width="300dp"
+                    android:layout_height="300dp"
+                    android:src="@drawable/circle_riple"
+                    android:scaleType="centerInside"/>
+
+                <!-- Animación de voz encima (más pequeña y con transparencia) -->
+                <ImageView
+                    android:id="@+id/animacionVozAlarma"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:src="@drawable/listening_animation"
+                    android:scaleType="centerInside"
+                    android:layout_gravity="center"
+                    android:alpha="0.8"/>
+            </FrameLayout>
+
+
+
+            <TextView
+                android:id="@+id/tvTranscripcionAlarma"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Dime la hora y fecha de la alarma"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:padding="16dp"/>
+
+        </LinearLayout>
+
+        <!-- SEGUNDA VISTA: Confirmar Alarma -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/tvResultadoVozAlarma"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lo que dijiste:"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                android:textAlignment="center"
+                android:padding="8dp"/>
+
+            <TextView
+                android:id="@+id/tvAlarmaConfirmadaAlarma"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tu alarma se programará a las 6:00 AM"
+                android:textSize="18sp"
+                android:textColor="@android:color/white"
+                android:textAlignment="center"
+                android:padding="8dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/btnCancelarAlarma"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Cancelar"
+                    android:layout_marginHorizontal="8dp"/>
+
+                <Button
+                    android:id="@+id/btnConfirmarAlarma"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Confirmar"
+                    android:layout_marginHorizontal="8dp"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ViewFlipper>
+
+</LinearLayout>

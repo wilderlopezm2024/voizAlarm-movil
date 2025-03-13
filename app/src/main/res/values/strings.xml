@@ -3,4 +3,5 @@
     <string name="title_home">Alarmas</string>
     <string name="title_dashboard">Mensajes</string>
     <string name="title_notifications">Ajustes</string>
+    <string name="create_alarm">Crear Alarma</string>
 </resources>

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@drawable/background_image">
 
+    <!-- Toolbar -->
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -15,24 +15,50 @@
         android:background="#2D7CFD"
         android:elevation="4dp"
         android:textColor="@android:color/white"
-        app:title="Mi Aplicación" />
+        app:title="Mi Aplicación"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
+    <!-- Fragmento de navegación -->
     <fragment
         android:id="@+id/nav_host_fragment_activity_main"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
         app:defaultNavHost="true"
-        app:navGraph="@navigation/mobile_navigation" />
+        app:navGraph="@navigation/mobile_navigation"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintBottom_toTopOf="@id/nav_view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
+    <!-- FloatingActionButton -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabCreateAlarm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:srcCompat="@drawable/ic_add"
+        app:tint="@android:color/white"
+        app:backgroundTint="?attr/colorPrimary"
+        style="@style/MyCustomFloatingActionButton"
+        android:contentDescription="@string/create_alarm"
+        app:layout_constraintBottom_toTopOf="@id/nav_view"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+
+    <!-- Bottom Navigation View -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_view"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="#91BBFF"
-        app:itemIconTint="@color/tab_color"
-        app:itemTextColor="@color/white"
-        app:menu="@menu/bottom_nav_menu" />
+        android:background="?android:attr/windowBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:menu="@menu/bottom_nav_menu"/>
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

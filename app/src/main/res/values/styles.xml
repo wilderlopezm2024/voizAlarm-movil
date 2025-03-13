@@ -1,0 +1,15 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Estilo Personalizado para el FAB -->
+    <style name="MyCustomFloatingActionButton" parent="Widget.MaterialComponents.FloatingActionButton">
+        <item name="shapeAppearance">@style/MyCustomShape</item>
+        <item name="android:elevation">6dp</item>
+    </style>
+
+    <!-- Estilo para hacer el FAB completamente redondo -->
+    <style name="MyCustomShape" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item> <!-- Garantiza que sea un círculo -->
+    </style>
+
+</resources>
