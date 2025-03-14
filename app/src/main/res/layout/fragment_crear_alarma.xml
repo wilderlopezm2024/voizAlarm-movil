@@ -1,90 +1,258 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:gravity="top"
     android:background="#BF6DB7E6">
 
-    <ViewFlipper
-        android:id="@+id/viewFlipperCrearAlarma"
+    <!-- Contenedor Principal -->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inAnimation="@android:anim/fade_in"
-        android:outAnimation="@android:anim/fade_out">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="top"
+        android:padding="16dp">
 
-        <!-- PRIMERA VISTA: Escuchando -->
-        <LinearLayout
+        <ViewFlipper
+            android:id="@+id/viewFlipperCrearAlarma"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:padding="16dp">
+            android:layout_height="wrap_content"
+            android:inAnimation="@android:anim/fade_in"
+            android:outAnimation="@android:anim/fade_out">
 
-            <TextView
-                android:id="@+id/tvEscuchandoAlarma"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Escuchando..."
-                android:textSize="24sp"
-                android:textStyle="bold"
-                android:textAlignment="center"
-                android:textColor="@android:color/white"/>
-
-            <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="48dp">
-
-                <!-- Círculo de ondas en el fondo -->
-                <ImageView
-                    android:id="@+id/circleView"
-                    android:layout_width="300dp"
-                    android:layout_height="300dp"
-                    android:src="@drawable/circle_riple_flexible"
-                    android:scaleType="centerInside"/>
-
-                <!-- Animación de voz encima -->
-                <ImageView
-                    android:id="@+id/animacionVozAlarma"
-                    android:layout_width="200dp"
-                    android:layout_height="200dp"
-                    android:src="@drawable/listening_animation"
-                    android:scaleType="centerInside"
-                    android:layout_gravity="center"
-                    android:alpha="0.8"/>
-            </FrameLayout>
-
-            <!-- 🔹 Vista vacía para empujar el CardView hacia abajo -->
-            <View
+            <!-- PRIMERA VISTA: Escuchando -->
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"/>
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="16dp">
 
-            <!-- 🔹 CardView hasta abajo -->
+                <TextView
+                    android:id="@+id/tvEscuchandoAlarma"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Escuchando..."
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white"/>
+
+                <FrameLayout
+                    android:id="@+id/frameLayoutAnimacion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="32dp">
+
+                    <!-- Círculo de ondas en el fondo -->
+                    <ImageView
+                        android:id="@+id/circleView"
+                        android:layout_width="280dp"
+                        android:layout_height="280dp"
+                        android:src="@drawable/circle_riple_flexible"
+                        android:scaleType="centerInside"/>
+
+                    <!-- Animación de voz encima -->
+                    <ImageView
+                        android:id="@+id/animacionVozAlarma"
+                        android:layout_width="180dp"
+                        android:layout_height="180dp"
+                        android:src="@drawable/listening_animation"
+                        android:scaleType="centerInside"
+                        android:layout_gravity="center"
+                        android:alpha="0.8"/>
+                </FrameLayout>
+
+                <!-- 🔹 CardView para la transcripción (subido más arriba) -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/recuadroTranscripcion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="0dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="120dp"
+                    app:cardCornerRadius="12dp"
+                    android:elevation="2dp"
+                    app:cardBackgroundColor="@android:color/white">
+
+                <TextView
+                    android:id="@+id/tvTranscripcionTiempoReal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Transcripción en tiempo real:\n"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    android:padding="16dp"
+                    android:maxLines="3"
+                    android:ellipsize="end"/>
+            </androidx.cardview.widget.CardView>
+
+            <!-- 🔹 CardView para el mensaje (subido más arriba) -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/recuadroMensaje"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
-                android:layout_marginBottom="16dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="8dp"
                 app:cardBackgroundColor="#4F8EF7"
                 app:cardCornerRadius="12dp"
                 android:elevation="2dp">
 
-                <TextView
-                    android:layout_width="match_parent"
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Por favor dime tu alarma, día, fecha, hora y si deseas algún sonido"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:padding="16dp"/>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+</ViewFlipper>
+    </LinearLayout>
+
+
+    <ImageButton
+        android:id="@+id/btnCerrar"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/ic_close"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:padding="12dp"
+        android:scaleType="fitCenter"
+        android:layout_gravity="end|top"
+        android:layout_margin="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:tint="@android:color/white" />
+
+    <!-- 🔹 CardView para la confirmación de la alarma -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/recuadroConfirmacionAlarma"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="200dp"
+        android:visibility="gone"
+        app:cardCornerRadius="12dp"
+        android:elevation="4dp"
+        app:cardBackgroundColor="@android:color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:id="@+id/tvConfirmacionAlarma"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tu alarma se creará a las 6:00 am el día Lunes"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:textAlignment="center"/>
+
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_clock"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                app:tint="@android:color/darker_gray"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="¿Confirmas?"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginTop="8dp"
+                android:textAlignment="center"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="8dp">
+
+                <Button
+                    android:id="@+id/btnCancelarAlarma"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="Por favor dime tu alarma, día, fecha, hora y si deseas algún sonido"
+                    android:text="Cancelar"
+                    android:backgroundTint="?attr/colorSecondary"
                     android:textColor="@android:color/white"
-                    android:textSize="16sp"
-                    android:padding="16dp"/>
-            </androidx.cardview.widget.CardView>
+                    android:layout_marginEnd="8dp"/>
 
+                <Button
+                    android:id="@+id/btnConfirmarAlarma"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Confirmar"
+                    android:backgroundTint="?attr/colorPrimary"
+                    android:textColor="@android:color/white"/>
+            </LinearLayout>
         </LinearLayout>
-    </ViewFlipper>
+    </androidx.cardview.widget.CardView>
 
-</LinearLayout>
+
+    <!-- 🔹 CardView para la acción de voz (ahora con ancho correcto) -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/recuadroConfirmacionVoz"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="100dp"
+        app:cardCornerRadius="50dp"
+        android:elevation="4dp"
+        app:cardBackgroundColor="@android:color/white"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="12dp">
+
+        <!-- Icono de micrófono -->
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/ic_mic"
+            android:layout_marginEnd="8dp"
+            app:tint="@android:color/black" />
+
+        <!-- Texto de confirmación de voz -->
+        <TextView
+            android:id="@+id/tvTextoConfirmacion"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Di 'Sí' o 'No' para confirmar"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"/>
+
+        <!-- Icono de sonido -->
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/ic_sound"
+            app:tint="@android:color/black" />
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+
+    </FrameLayout>
