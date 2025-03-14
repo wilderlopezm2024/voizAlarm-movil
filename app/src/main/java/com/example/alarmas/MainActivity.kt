@@ -1,5 +1,6 @@
 package com.example.alarmas
 
+import android.animation.ObjectAnimator
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -12,6 +13,7 @@ import com.example.alarmas.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.example.alarmas.ui.alarm.CrearAlarmaFragment
+import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : AppCompatActivity() {
 
@@ -41,10 +43,23 @@ private lateinit var binding: ActivityMainBinding
             val dialog = CrearAlarmaFragment()
             dialog.show(supportFragmentManager, "CrearAlarmaDialog")
         }
+
+        fabAdd.post {
+            Snackbar.make(fabAdd, "Presiona + para agregar una alarma", Snackbar.LENGTH_LONG).show()
+        }
+
+        val bounceAnim = ObjectAnimator.ofFloat(R.id.fabCreateAlarm, "translationY", 0f, -20f, 0f).apply {
+            duration = 1000
+            repeatMode = ObjectAnimator.REVERSE
+            repeatCount = ObjectAnimator.INFINITE
+        }
+        bounceAnim.start()
     }
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
         return navController.navigateUp() || super.onSupportNavigateUp()
     }
+
 }
+

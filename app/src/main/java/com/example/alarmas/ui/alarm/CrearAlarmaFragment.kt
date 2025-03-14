@@ -10,6 +10,7 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.speech.RecognitionListener
 import android.speech.RecognizerIntent
 import android.speech.SpeechRecognizer
@@ -55,6 +56,17 @@ class CrearAlarmaFragment : DialogFragment() {
         binding.btnCerrar.setOnClickListener { dismiss() }
 
         binding.btnCancelarAlarma.setOnClickListener { dismiss() }
+
+        binding.btnConfirmarAlarma.setOnClickListener {
+            binding.recuadroConfirmacionAlarma.visibility = View.GONE
+            binding.recuadroTranscripcion.visibility = View.GONE
+            binding.recuadroConfirmacionVoz.visibility = View.GONE
+            binding.confirmacionAlarma.visibility = View.VISIBLE
+
+            Handler(Looper.getMainLooper()).postDelayed({
+                dismiss()  // 🔹 Cierra el DialogFragment después de 5 segundos
+            }, 3000)  // ⏳ 5000 ms = 5 segundos
+        }
 
         // 🔹 Verificar permisos antes de iniciar el reconocimiento de voz
         if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.RECORD_AUDIO)
