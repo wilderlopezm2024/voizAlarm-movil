@@ -64,8 +64,8 @@ class CrearAlarmaFragment : DialogFragment() {
             binding.confirmacionAlarma.visibility = View.VISIBLE
 
             Handler(Looper.getMainLooper()).postDelayed({
-                dismiss()  // 🔹 Cierra el DialogFragment después de 5 segundos
-            }, 3000)  // ⏳ 5000 ms = 5 segundos
+                dismiss()  // 🔹 Cierra el DialogFragment después de 3 segundos
+            }, 3000)
         }
 
         // 🔹 Verificar permisos antes de iniciar el reconocimiento de voz
