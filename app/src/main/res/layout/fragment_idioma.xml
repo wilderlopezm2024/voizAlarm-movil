@@ -53,6 +53,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="8dp"
             android:layout_weight="1"
+            android:backgroundTint="#007BFF"
             android:text="Guardar" />
 
         <Button
@@ -61,6 +62,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="8dp"
             android:layout_weight="1"
+            android:backgroundTint="?attr/colorSecondary"
             android:text="Cancelar" />
     </LinearLayout>
 
