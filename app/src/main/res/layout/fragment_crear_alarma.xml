@@ -152,7 +152,7 @@
                 android:id="@+id/tvConfirmacionAlarma"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tu alarma se creará a las 6:00 am el día Lunes"
+                android:text="Tu alarma se creará"
                 android:textColor="@android:color/black"
                 android:textSize="16sp"
                 android:textAlignment="center"/>
@@ -198,7 +198,7 @@
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:text="Confirmar"
-                    android:backgroundTint="?attr/colorPrimary"
+                    android:backgroundTint="#007BFF"
                     android:textColor="@android:color/white"/>
             </LinearLayout>
         </LinearLayout>

@@ -54,6 +54,7 @@
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:text="Apagar"
+                    android:backgroundTint="#007BFF"
                     android:layout_marginHorizontal="8dp"/>
 
                 <Button
@@ -62,6 +63,7 @@
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:text="Posponer"
+                    android:backgroundTint="#007BFF"
                     android:layout_marginHorizontal="8dp"/>
             </LinearLayout>
 
@@ -137,6 +139,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Aceptar"
+                    android:backgroundTint="#007BFF"
                     android:layout_marginStart="8dp"/>
             </LinearLayout>
 

@@ -30,7 +30,6 @@ class CrearAlarmaFragment : DialogFragment() {
     private var _binding: FragmentCrearAlarmaBinding? = null
     private val binding get() = _binding!!
     private var speechRecognizer: SpeechRecognizer? = null
-    private val REQUEST_RECORD_AUDIO_PERMISSION = 100
     private var handler = Handler()
 
     override fun onCreateView(
@@ -68,33 +67,8 @@ class CrearAlarmaFragment : DialogFragment() {
             }, 3000)
         }
 
-        // 🔹 Verificar permisos antes de iniciar el reconocimiento de voz
-        if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.RECORD_AUDIO)
-            != PackageManager.PERMISSION_GRANTED) {
+        iniciarReconocimientoDeVozConDelay()
 
-            Log.e("Permisos", "No se ha concedido permiso de audio. Solicitando...")
-            ActivityCompat.requestPermissions(
-                requireActivity(), arrayOf(Manifest.permission.RECORD_AUDIO), REQUEST_RECORD_AUDIO_PERMISSION
-            )
-        } else {
-            Log.d("Permisos", "Permiso concedido, iniciando escucha con delay.")
-            iniciarReconocimientoDeVozConDelay()
-        }
-    }
-
-    // 🔹 Manejo de la respuesta del usuario al solicitar permisos
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-
-        if (requestCode == REQUEST_RECORD_AUDIO_PERMISSION) {
-            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                Log.d("Permisos", "Permiso de micrófono concedido, iniciando escucha.")
-                iniciarReconocimientoDeVozConDelay()
-            } else {
-                binding.tvTranscripcionTiempoReal.text = "Permiso de micrófono denegado"
-                Toast.makeText(requireContext(), "Debes conceder permisos de micrófono", Toast.LENGTH_LONG).show()
-            }
-        }
     }
 
     private fun iniciarReconocimientoDeVozConDelay() {
@@ -122,7 +96,7 @@ class CrearAlarmaFragment : DialogFragment() {
                 val matches = results?.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION)
                 if (!matches.isNullOrEmpty()) {
                     Log.d("Voz", "Reconocimiento exitoso: ${matches[0]}")
-                    binding.tvTranscripcionTiempoReal.text = matches[0]
+                    binding.tvTranscripcionTiempoReal.text = "Lo que has dicho:\n" + matches[0]
                     binding.recuadroMensaje.visibility = View.GONE
                     binding.frameLayoutAnimacion.visibility = View.GONE
                     binding.tvEscuchandoAlarma.visibility = View.GONE
