@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Alarmas</string>
+    <string name="app_name">VoizAlarm</string>
     <string name="title_home">Alarmas</string>
     <string name="title_dashboard">Mensajes</string>
     <string name="title_notifications">Ajustes</string>
