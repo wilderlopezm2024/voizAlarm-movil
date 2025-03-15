@@ -49,6 +49,9 @@ VoizAlarm es una aplicación de Android que permite a los usuarios crear alarmas
 
 https://github.com/wilderlopezm2024/voizAlarm-movil
 
+### URL APK Release
+
+https://github.com/wilderlopezm2024/voizAlarm-movil/releases/download/v1.0.0/VoizAlarmv1.0.0.apk
 
 ## Estructura del proyecto
 
