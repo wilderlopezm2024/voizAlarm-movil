@@ -87,6 +87,7 @@ El proyecto sigue una arquitectura MVVM que divide responsabilidades en diferent
 2. Después de que se complete la construcción, encuentra el archivo APK en:
   - Versión de depuración: app/build/outputs/apk/debug/app-debug.apk
   - Versión de lanzamiento: app/build/outputs/apk/release/app-release.apk (requiere firma).
-3. Instalar APK: Transfiere el APK a tu dispositivo Android e instálalo directamente.
+3. **Instalar APK**: Transfiere el APK a tu dispositivo Android e instálalo directamente, puedes bajarlo de [aquí](https://github.com/wilderlopezm2024/voizAlarm-movil/releases/download/v1.0.0/VoizAlarmv1.0.0.apk).
+
 
 
